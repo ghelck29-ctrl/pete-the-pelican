@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pelican Pete: Sunshine City Adventures</title>
+<meta name="description" content="Pelican Pete is a comic series for families, set in real St. Petersburg, Florida places. A curious pelican, a thoughtful sandpiper, a tiny crab, and a city full of people worth knowing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,500..800,100&family=Nunito+Sans:opsz,wght@6..12,400..800&display=swap" rel="stylesheet">
+<style>
+:root{--sand:#FBF6EA;--shell:#F3E9D2;--ink:#143F45;--sea:#1E7A80;--coral:#D5543A;--sun:#F0B239;--line:#E3D6B8;--white:#FFFDF8}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--sand);color:var(--ink);font:400 17px/1.6 "Nunito Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-variation-settings:"SOFT" 100;line-height:1.08;margin:0;letter-spacing:-.01em}
+a{color:inherit}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+.eyebrow{font-size:.76rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--sea)}
+header.top{position:sticky;top:0;z-index:10;background:rgba(251,246,234,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:60px}
+.brand{font-family:Fraunces,serif;font-weight:800;font-size:1.25rem;text-decoration:none;font-variation-settings:"SOFT" 100}
+.brand b{color:var(--coral);font-weight:800}
+nav{display:flex;gap:22px;font-weight:700;font-size:.95rem}
+nav a{text-decoration:none;padding:6px 0;border-bottom:2px solid transparent}
+nav a:hover,nav a:focus-visible{border-color:var(--sun)}
+.hero{padding:44px 0 28px}
+.hero .wrap{display:grid;gap:30px;align-items:center}
+.hero h1{font-size:clamp(2.7rem,9vw,5.2rem);font-weight:800}
+.hero h1 span{display:block;color:var(--coral)}
+.hero p.lede{font-size:1.16rem;max-width:34ch;margin:18px 0 26px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:14px 24px;border-radius:999px;font-weight:800;text-decoration:none;border:2px solid var(--ink);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-main{background:var(--ink);color:var(--white)}
+.btn-alt{background:var(--sun);border-color:var(--sun)}
+.hero-art{border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:0 18px 40px -22px rgba(20,63,69,.5);transform:rotate(-1.2deg)}
+.wave{display:block;width:100%;height:46px;color:var(--shell)}
+section{padding:56px 0}
+.crew{background:var(--shell)}
+.sec-head{max-width:44ch;margin-bottom:30px}
+.sec-head h2{font-size:clamp(1.9rem,5.5vw,3rem);font-weight:700;margin-top:8px}
+.sec-head p{margin:12px 0 0}
+.crew-grid{display:grid;gap:16px}
+.who{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:22px 22px 20px;border-top:6px solid var(--c)}
+.who h3{font-size:1.5rem;font-weight:700}
+.who p{margin:8px 0 0}
+.reader{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 20px 18px;margin-inline:-20px;-webkit-overflow-scrolling:touch}
+.reader figure{flex:0 0 min(86%,440px);scroll-snap-align:center;margin:0}
+.reader img{border-radius:16px;border:1px solid var(--line);background:var(--white)}
+.reader figcaption{text-align:center;font-size:.85rem;font-weight:700;color:var(--sea);padding-top:8px}
+.hint{font-size:.9rem;font-weight:700;color:var(--sea);margin:0 0 12px}
+.try{margin-top:26px;background:var(--sun);border-radius:18px;padding:22px 24px;max-width:640px}
+.try h3{font-size:1.35rem;font-weight:700}
+.try p{margin:6px 0 0}
+.list{list-style:none;padding:0;margin:0;display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.card{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:center;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:10px}
+.card img{border-radius:11px;width:96px;height:96px;object-fit:cover}
+.card-body{position:relative;padding-right:6px}
+.num{font-family:Fraunces,serif;font-weight:800;color:var(--coral);font-size:.95rem}
+.card h3{font-size:1.08rem;font-weight:700;line-height:1.2;margin-top:2px}
+.card p{margin:3px 0 6px;font-size:.88rem;color:#3d6166}
+.tag{font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#6b7f76}
+.tag-go{color:var(--coral)}
+.places{background:var(--ink);color:var(--sand)}
+.places .eyebrow{color:var(--sun)}
+.places p{max-width:60ch}
+.follow{text-align:center}
+.follow .sec-head{margin-inline:auto}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between}
+@media (min-width:820px){
+  .hero .wrap{grid-template-columns:1fr 1.1fr}
+  .crew-grid{grid-template-columns:repeat(3,1fr)}
+  .reader{overflow:visible;display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin:0;padding:0;max-width:940px}
+  .reader figure{flex:none}
+  .hint{display:none}
+}
+@media (max-width:560px){nav a.opt{display:none} nav{gap:16px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="#top">Pelican <b>Pete</b></a>
+  <nav aria-label="Sections"><a href="#crew">The crew</a><a href="#read">Read</a><a href="#adventures">Adventures</a><a class="opt" href="#places">Real places</a></nav>
+</div></header>
+
+<main id="top">
+<div class="hero"><div class="wrap">
+  <div>
+    <p class="eyebrow">Sunshine City Adventures</p>
+    <h1>Big beak. <span>Bigger heart.</span></h1>
+    <p class="lede">A curious pelican, a thoughtful sandpiper, a tiny crab, and a city full of people worth knowing.</p>
+    <div class="btns"><a class="btn btn-main" href="#read">Read the first adventure</a><a class="btn btn-alt" href="#adventures">See all 20</a></div>
+  </div>
+  <div class="hero-art"><img src="img/pete-hero.jpg" width="1536" height="1024" alt="Pelican Pete, a white pelican in a red neckerchief with a teal satchel, on a St. Petersburg beach, shown curious, surprised and delighted."></div>
+</div></div>
+<svg class="wave" viewBox="0 0 1200 46" preserveAspectRatio="none" aria-hidden="true"><path fill="currentColor" d="M0 24c100-22 200-22 300 0s200 22 300 0 200-22 300 0 200 22 300 0v22H0z"/></svg>
+
+<section class="crew" id="crew"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">Meet the explorers</p><h2>Small friends make a very big difference.</h2></div>
+  <div class="crew-grid">
+    <div class="who" style="--c:var(--coral)"><h3>Pete</h3><p>His ideas are big. His bill is bigger. He is learning that a good adventure makes room for everyone.</p></div>
+    <div class="who" style="--c:var(--sea)"><h3>Pip + Dot</h3><p>Pip asks thoughtful questions. Dot finds clever solutions.</p></div>
+    <div class="who" style="--c:var(--sun)"><h3>Maya + Grandma</h3><p>Maya keeps the red adventure notebook. Grandma brings stories, patience, and a few surprises of her own.</p></div>
+  </div>
+</div></section>
+
+<section id="read"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">Adventure 01 · The Palladium</p><h2>A Night at the Theater</h2><p>One pelican. Every job. What could possibly go wrong?</p></div>
+  <p class="hint">Swipe to turn the page →</p>
+  <div class="reader" tabindex="0" aria-label="A Night at the Theater, four comic pages">
+        <figure><img src="img/pete-01-1.jpg" alt="Page 1: Pete claims every role in the little rehearsal." width="1080" height="1350" loading="lazy"><figcaption>Page 1 of 4</figcaption></figure>
+        <figure><img src="img/pete-01-2.jpg" alt="Page 2: His solo effort becomes a harmless fabric tangle." width="1080" height="1350" loading="lazy"><figcaption>Page 2 of 4</figcaption></figure>
+        <figure><img src="img/pete-01-3.jpg" alt="Page 3: He asks his friends which jobs they want." width="1080" height="1350" loading="lazy"><figcaption>Page 3 of 4</figcaption></figure>
+        <figure><img src="img/pete-01-4.jpg" alt="Page 4: The show succeeds, and every helper joins the bow." width="1080" height="1350" loading="lazy"><figcaption>Page 4 of 4</figcaption></figure>
+  </div>
+  <div class="try"><h3>Try it together</h3><p>Put on a one-minute family show. Let each person choose one job, then take the bow together.</p></div>
+</div></section>
+
+<section class="crew" id="adventures"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">Twenty adventures</p><h2>A city full of adventures.</h2><p>A new one arrives every Saturday. Each takes Pete and his friends to a real St. Petersburg place.</p></div>
+  <ol class="list">
+      <li class="card is-open">
+        <img src="img/thumb-01.jpg" alt="" loading="lazy" width="360" height="360">
+        <div class="card-body"><span class="num">01</span><h3>A Night at the Theater</h3><p>The Palladium</p><a href="#read" class="tag tag-go">Read it now</a></div>
+      </li>
+      <li class="card">
+        <img src="img/thumb-02.jpg" alt="" loading="lazy" width="360" height="360">
+        <div class="card-body"><span class="num">02</span><h3>The Flamingo Who Lost Her Oomph</h3><p>Sunken Gardens</p><span class="tag">Coming soon</span></div>
+      </li>
+      <li class="card">
+        <img src="img/thumb-03.jpg" alt="" loading="lazy" width="360" height="360">
+        <div class="card-body"><span class="num">03</span><h3>The Upside-Down Idea</h3><p>The Dalí Museum</p><span class="tag">Coming soon</span></div>
+      </li>
+      <li class="card">
+        <img src="img/thumb-04.jpg" alt="" loading="lazy" width="360" height="360">
+        <div class="card-body"><span class="num">04</span><h3>The Whisper in the Woods</h3><p>Boyd Hill Nature Preserve</p><span class="tag">Coming soon</span></div>
+      </li>
+      <li class="card">
+        <img src="img/thumb-05.jpg" alt="" loading="lazy" width="360" height="360">
+        <div class="card-body"><span class="num">05</span><h3>The Color That Didn&#x27;t Fit</h3><p>Central Avenue arts corridor</p><span class="tag">Coming soon</span></div>
+      </li>
+      <li class="card">
+        <img src="img/thumb-06.jpg" alt="" loading="lazy" width="360" height="360">
+        <div class="card-body"><span class="num">06</span><h3>The Mangrove Mix-Up</h3><p>Weedon Island Preserve</p><span class="tag">Coming soon</span></div>
+      </li>
+      <li class="card">
+        <img src="img/thumb-07.jpg" alt="" loading="lazy" width="360" height="360">
+        <div class="card-body"><span class="num">07</span><h3>The Very Slow Race</h3><p>Crescent Lake Park</p><span class="tag">Coming soon</span></div>
+      </li>
+      <li class="card">
+        <img src="img/thumb-08.jpg" alt="" loading="lazy" width="360" height="360">
+        <div class="card-body"><span class="num">08</span><h3>The Shuffleboard Surprise</h3><p>St. Petersburg Shuffleboard Club</p><span class="tag">Coming soon</span></div>
+      </li>
+      <li class="card">
+        <img src="img/thumb-09.jpg" alt="" loading="lazy" width="360" height="360">
+        <div class="card-body"><span class="num">09</span><h3>The Thank-You Basket</h3><p>Saturday Morning Market</p><span class="tag">Coming soon</span></div>
+      </li>
+      <li class="card">
+        <img src="img/thumb-10.jpg" alt="" loading="lazy" width="360" height="360">
+        <div class="card-body"><span class="num">10</span><h3>The Story on the Porch</h3><p>Historic Roser Park</p><span class="tag">Coming soon</span></div>
+      </li>
+      <li class="card">
+        <img src="img/thumb-11.jpg" alt="" loading="lazy" width="360" height="360">
+        <div class="card-body"><span class="num">11</span><h3>The Picture with Two Stories</h3><p>The James Museum</p><span class="tag">Coming soon</span></div>
+      </li>
+      <li class="card">
+        <img src="img/thumb-12.jpg" alt="" loading="lazy" width="360" height="360">
+        <div class="card-body"><span class="num">12</span><h3>The Pink Palace Time Machine</h3><p>The Vinoy</p><span class="tag">Coming soon</span></div>
+      </li>
+      <li class="card">
+        <img src="img/thumb-13.jpg" alt="" loading="lazy" width="360" height="360">
+        <div class="card-body"><span class="num">13</span><h3>The Very Busy Yes</h3><p>Demens Landing Park</p><span class="tag">Coming soon</span></div>
+      </li>
+      <li class="card">
+        <img src="img/thumb-14.jpg" alt="" loading="lazy" width="360" height="360">
+        <div class="card-body"><span class="num">14</span><h3>The Missing Beat</h3><p>The Mahaffey Theater waterfront</p><span class="tag">Coming soon</span></div>
+      </li>
+      <li class="card">
+        <img src="img/thumb-15.jpg" alt="" loading="lazy" width="360" height="360">
+        <div class="card-body"><span class="num">15</span><h3>The Windsock Won&#x27;t Listen</h3><p>Albert Whitted Park</p><span class="tag">Coming soon</span></div>
+      </li>
+      <li class="card">
+        <img src="img/thumb-16.jpg" alt="" loading="lazy" width="360" height="360">
+        <div class="card-body"><span class="num">16</span><h3>The Case of the Upside-Down Pier</h3><p>St. Pete Pier</p><span class="tag">Coming soon</span></div>
+      </li>
+      <li class="card">
+        <img src="img/thumb-17.jpg" alt="" loading="lazy" width="360" height="360">
+        <div class="card-body"><span class="num">17</span><h3>The Picture Pete Couldn&#x27;t Fix</h3><p>Museum of Fine Arts</p><span class="tag">Coming soon</span></div>
+      </li>
+      <li class="card">
+        <img src="img/thumb-18.jpg" alt="" loading="lazy" width="360" height="360">
+        <div class="card-body"><span class="num">18</span><h3>The Picnic That Changed Its Mind</h3><p>St. Pete Pier district</p><span class="tag">Coming soon</span></div>
+      </li>
+      <li class="card">
+        <img src="img/thumb-19.jpg" alt="" loading="lazy" width="360" height="360">
+        <div class="card-body"><span class="num">19</span><h3>The Empty Place</h3><p>North Shore Park</p><span class="tag">Coming soon</span></div>
+      </li>
+      <li class="card">
+        <img src="img/thumb-20.jpg" alt="" loading="lazy" width="360" height="360">
+        <div class="card-body"><span class="num">20</span><h3>The Sunshine City Story Parade</h3><p>North Straub Park</p><span class="tag">Coming soon</span></div>
+      </li>
+  </ol>
+</div></section>
+
+<section class="places" id="places"><div class="wrap">
+  <p class="eyebrow">Real places. Original adventures.</p>
+  <h2 style="font-size:clamp(1.7rem,5vw,2.6rem);font-weight:700;margin:8px 0 14px">The landmarks are real. The stories are made up.</h2>
+  <p>Every adventure is set somewhere a family can actually visit in St. Petersburg, Florida. The characters, conversations and organized activities are fictional, and no venue has endorsed the series.</p>
+</div></section>
+
+<section class="follow"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">Wings up!</p><h2>There is room for your story.</h2><p>Pelican Pete comes from Posterity Literary Works, which publishes stories about what families carry forward.</p></div>
+  <a class="btn btn-main" href="https://posterityliteraryworks.com">Visit Posterity Literary Works</a>
+</div></section>
+</main>
+
+<footer><div class="wrap"><span>Pelican Pete: Sunshine City Adventures · By Gregory</span><span>© 2026 Posterity Literary Works</span></div></footer>
+</body>
+</html>
