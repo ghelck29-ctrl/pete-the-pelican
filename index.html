@@ -63,6 +63,9 @@ section{padding:56px 0}
 .card p{margin:3px 0 6px;font-size:.88rem;color:#3d6166}
 .tag{font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#6b7f76}
 .tag-go{color:var(--coral)}
+.card.is-now{border-color:var(--coral);box-shadow:0 0 0 2px var(--coral) inset}
+.more{font-weight:800;margin:18px 0 0}
+.more a{color:var(--coral)}
 .places{background:var(--ink);color:var(--sand)}
 .places .eyebrow{color:var(--sun)}
 .places p{max-width:60ch}
@@ -93,7 +96,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
     <p class="eyebrow">A Posterity Literary Works series</p>
     <h1>Big beak. <span>Bigger heart.</span></h1>
     <p class="lede">A curious pelican, a thoughtful sandpiper, a tiny crab, and a city full of people worth knowing.</p>
-    <div class="btns"><a class="btn btn-main" href="#read">Read the first adventure</a><a class="btn btn-alt" href="#adventures">See all 20</a></div>
+    <div class="btns"><a class="btn btn-main" id="hero-read" href="#read">Read the first adventure</a><a class="btn btn-alt" href="#adventures">See all 20</a></div>
   </div>
   <div class="hero-art"><img src="img/pete-hero.jpg" width="1536" height="1024" alt="Pelican Pete, a white pelican in a red neckerchief with a teal satchel, on a St. Petersburg beach, shown curious, surprised and delighted."></div>
 </div></div>
@@ -109,20 +112,21 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
 </div></section>
 
 <section id="read"><div class="wrap">
-  <div class="sec-head"><p class="eyebrow">Adventure 01 · The Palladium</p><h2>A Night at the Theater</h2><p>One pelican. Every job. What could possibly go wrong?</p></div>
+  <div class="sec-head"><p class="eyebrow" id="r-eyebrow">Adventure 01 · The Palladium</p><h2 id="r-title">A Night at the Theater</h2><p id="r-blurb">One pelican. Every job. What could possibly go wrong?</p></div>
   <p class="hint">Swipe to turn the page →</p>
-  <div class="reader" tabindex="0" aria-label="A Night at the Theater, four comic pages">
+  <div class="reader" id="r-pages" tabindex="0" aria-label="A Night at the Theater, four comic pages">
         <figure><img src="img/pete-01-1.jpg" alt="Page 1: Pete claims every role in the little rehearsal." width="1080" height="1350" loading="lazy"><figcaption>Page 1 of 4</figcaption></figure>
         <figure><img src="img/pete-01-2.jpg" alt="Page 2: His solo effort becomes a harmless fabric tangle." width="1080" height="1350" loading="lazy"><figcaption>Page 2 of 4</figcaption></figure>
         <figure><img src="img/pete-01-3.jpg" alt="Page 3: He asks his friends which jobs they want." width="1080" height="1350" loading="lazy"><figcaption>Page 3 of 4</figcaption></figure>
         <figure><img src="img/pete-01-4.jpg" alt="Page 4: The show succeeds, and every helper joins the bow." width="1080" height="1350" loading="lazy"><figcaption>Page 4 of 4</figcaption></figure>
   </div>
-  <div class="try"><h3>Try it together</h3><p>Put on a one-minute family show. Let each person choose one job, then take the bow together.</p></div>
+  <p class="more" id="r-more" hidden></p>
+  <div class="try"><h3 id="r-try-h">Try it together</h3><p id="r-try">Put on a one-minute family show. Let each person choose one job, then take the bow together.</p></div>
 </div></section>
 
 <section class="crew" id="adventures"><div class="wrap">
   <div class="sec-head"><p class="eyebrow">Twenty adventures</p><h2>A city full of adventures.</h2><p>A new one arrives every Saturday. Each takes Pete and his friends to a real St. Petersburg place.</p></div>
-  <ol class="list">
+  <ol class="list" id="adv-list">
       <li class="card is-open">
         <img src="img/thumb-01.jpg" alt="" loading="lazy" width="360" height="360">
         <div class="card-body"><span class="num">01</span><h3>A Night at the Theater</h3><p>The Palladium</p><a href="#read" class="tag tag-go">Read it now</a></div>
@@ -219,5 +223,53 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-bet
 </main>
 
 <footer><div class="wrap"><span>Pelican Pete: Sunshine City Adventures · A Posterity Literary Works series · By Gregory</span><span>© 2026 Posterity Literary Works</span></div></footer>
+<script>
+/* Weekly release: each adventure opens on the site at the same moment its
+   social post goes out (Saturdays, 10 AM Eastern). Times below are UTC. */
+(function(){
+var C=[{"n":"01","t":"A Night at the Theater","p":"The Palladium","b":"One pelican. Every job. What could possibly go wrong?","q":"Who would choose which job in your family's little show?","a":["Pete claims every role in the little rehearsal.","His solo effort becomes a harmless fabric tangle.","He asks his friends which jobs they want.","The show succeeds, and every helper joins the bow."],"r":null,"try":"Put on a one-minute family show. Let each person choose one job, then take the bow together."},{"n":"02","t":"The Flamingo Who Lost Her Oomph","p":"Sunken Gardens","b":"Flo has lost her oomph. Pete brings the loudest cheer in the garden.","q":"How do you like someone to keep you company on a quiet day?","a":["Flo says she has lost her oomph.","Pete's big performance makes her withdraw.","Pip asks what Flo actually wants.","Quiet noticing gives the friends a way to be together."],"r":"2026-11-28T15:00:00Z"},{"n":"03","t":"The Upside-Down Idea","p":"The Dalí Museum","b":"Pete has a perfectly straight bill and a very crooked idea about art.","q":"What could the same leaf look like to four different people?","a":["Pete insists that good drawings use straight lines.","Different friends see different shapes in the same building.","Maya turns her page; Pete tries a crooked curve.","All four drawings belong together without looking alike."],"r":"2026-12-05T15:00:00Z"},{"n":"04","t":"The Whisper in the Woods","p":"Boyd Hill Nature Preserve","b":"An enormous woodland mystery has extremely tiny feet.","q":"What did you hear, and what did you imagine was making it?","a":["A rustle inspires Pete's gigantic guesses.","A ranger asks the group to describe before deciding.","Stillness reveals a small lizard and moving leaves.","Maya records the evidence, and the friends leave the animal alone."],"r":"2026-12-12T15:00:00Z"},{"n":"05","t":"The Color That Didn't Fit","p":"Central Avenue arts corridor","b":"Pete brought the perfect color. Unfortunately, it covered everybody else.","q":"What would each person in your family add to a shared picture?","a":["Each friend contributes a different color and meaning.","Pete covers their marks to make everything match.","He listens to what the erased marks meant.","A new panel lets his teal connect the contributions."],"r":"2026-12-19T15:00:00Z"},{"n":"06","t":"The Mangrove Mix-Up","p":"Weedon Island Preserve","b":"Pete thinks the mangroves need tidying. Dot would like to speak to the residents first.","q":"What might use a small, tangled space as a home?","a":["Pete draws the mangrove roots in tidy straight rows.","The friends notice creatures using the real tangle.","Maya imagines the roots as a neighborhood.","Pete changes his drawing and helps care for the place."],"r":"2026-12-26T15:00:00Z"},{"n":"07","t":"The Very Slow Race","p":"Crescent Lake Park","b":"Pete wins the race. Nobody is there to celebrate.","q":"What makes an outing enjoyable for the slowest person in the group?","a":["Pete invents a race around his own long strides.","Winning alone exposes the problem with his plan.","Dot proposes a short noticing trail.","Everyone contributes and finishes together."],"r":"2027-01-02T15:00:00Z"},{"n":"08","t":"The Shuffleboard Surprise","p":"St. Petersburg Shuffleboard Club","b":"Pete brings confidence. Grandma brings accuracy.","q":"What game could an older relative or friend teach your family?","a":["Pete assumes he will be an instant champion.","Two overpowered shots miss their target.","Grandma teaches a measured motion and Pete asks for coaching.","Pete improves, cheers for Grandma, and listens to her memories."],"r":"2027-01-09T15:00:00Z"},{"n":"09","t":"The Thank-You Basket","p":"Saturday Morning Market","b":"One thank-you card. A market full of people who deserve it.","q":"Whose work made your day easier, happier, or more interesting?","a":["Pete looks for one person to thank for the whole market.","Every helper names another contributor.","The friends make many specific thank-you drawings.","The empty basket and full notebook reveal a community."],"r":"2027-01-16T15:00:00Z"},{"n":"10","t":"The Story on the Porch","p":"Historic Roser Park","b":"Mr. Ellis has a story. Pete keeps adding pirates.","q":"Who showed you a small kindness that you still remember?","a":["Mr. Ellis begins a memory of a rainy childhood day.","Pete interrupts with imagined pirates and dragons.","Maya asks what really happened, and Pete listens.","They record the small kindness with permission and credit."],"r":"2027-01-23T15:00:00Z"},{"n":"11","t":"The Picture with Two Stories","p":"The James Museum","b":"Pete is certain the bear is angry. Maya sees something else.","q":"What detail made you see the picture differently from someone else?","a":["The friends give the same painted bear different emotions.","Pete insists his version is obvious.","Pip separates visible details from imagined stories.","They explain their viewpoints and leave room for uncertainty."],"r":"2027-01-30T15:00:00Z"},{"n":"12","t":"The Pink Palace Time Machine","p":"The Vinoy","b":"Pete is looking for the time-machine button. Grandma brought a postcard.","q":"What familiar place holds a memory from your family's past?","a":["Grandma introduces an old Vinoy postcard.","Pete looks for a literal way to travel into the picture.","Maya compares the old and current views.","Facing notebook pages make room for then and now."],"r":"2027-02-06T15:00:00Z"},{"n":"13","t":"The Very Busy Yes","p":"Demens Landing Park","b":"Pete has promised three jobs. He has counted two wings.","q":"How can you tell someone what you can help with right now?","a":["Pete agrees to help three friends at once.","All three projects stall as he struggles to keep up.","He names one task he can finish and what must wait.","The friends find other ways to help and finish together."],"r":"2027-02-13T15:00:00Z"},{"n":"14","t":"The Missing Beat","p":"The Mahaffey Theater waterfront","b":"Pete found the missing beat. Unfortunately, it was supposed to be quiet.","q":"What do you notice when you leave a little space before your turn?","a":["Grandma introduces a rhythm with a rest.","Pete fills the silence and disrupts the pattern.","A drawn quiet box helps him count the pause.","The shared rhythm makes space for Dot's small contribution."],"r":"2027-02-20T15:00:00Z"},{"n":"15","t":"The Windsock Won't Listen","p":"Albert Whitted Park","b":"Pete has given the wind very clear instructions.","q":"When a plan changes, what is one thing you can still choose?","a":["Pete notices the windsock changing direction.","He tries to command the wind and gets a scarf in his face.","The friends adapt their drawings and secure their pages.","Pete discovers that he can change his own approach."],"r":"2027-02-27T15:00:00Z"},{"n":"16","t":"The Case of the Upside-Down Pier","p":"St. Pete Pier","b":"Two pictures. Two very different piers. Pete declares an impostor.","q":"What clue could help you work out when an old photograph was taken?","a":["Different Pier pictures look contradictory to Pete.","Maya spots a date and Grandma explains the changing waterfront.","The friends compare dated evidence instead of inventing an answer.","Pete changes his note from 'fake' to 'when?'."],"r":"2027-03-06T15:00:00Z"},{"n":"17","t":"The Picture Pete Couldn't Fix","p":"Museum of Fine Arts","b":"The tear was small. Hiding it made the problem bigger.","q":"What makes an apology helpful to the person who was hurt?","a":["Pete accidentally tears Maya's loose drawing.","He folds the corner to conceal the damage.","He tells the truth and asks Maya what would help.","Maya directs the repair, and Pete changes how he carries it."],"r":"2027-03-13T15:00:00Z"},{"n":"18","t":"The Picnic That Changed Its Mind","p":"St. Pete Pier district","b":"The clouds did not RSVP to Pete's perfect picnic.","q":"Which parts of a good day can travel with you when plans change?","a":["Pete prepares an outdoor story-sharing preview.","Rain requires Grandma to move the gathering indoors.","The friends acknowledge disappointment and notice what remains.","Their stories travel with them, and Pete makes a backup plan."],"r":"2027-03-20T14:00:00Z"},{"n":"19","t":"The Empty Place","p":"North Shore Park","b":"Pete's welcome has instructions. Eli only wanted to look.","q":"What helps you feel comfortable when you join a new group?","a":["Eli and his father pause to look at the group's drawings.","Pete overwhelms Eli with enthusiastic instructions.","Maya offers choices and time to decide.","Eli draws his own boat and receives an invitation to return."],"r":"2027-03-27T14:00:00Z"},{"n":"20","t":"The Sunshine City Story Parade","p":"North Straub Park","b":"Pete has a giant picture of himself. Then he notices everyone else's stories.","q":"What story would your family put on the first page of a new adventure book?","a":["Pete notices how many people made the adventures possible.","Every friend receives room to tell a story.","Eli's simple drawing belongs alongside all the others.","A new blank book passes the invitation to the next explorer."],"r":"2027-04-03T14:00:00Z"}];
+var now=Date.now();
+function open(c){return !c.r||Date.parse(c.r)<=now;}
+var latest=0;for(var i=0;i<C.length;i++){if(open(C[i]))latest=i;}
+var list=document.getElementById('adv-list');if(!list)return;
+var items=list.children;
+function when(c){try{return new Date(c.r).toLocaleDateString('en-US',{month:'short',day:'numeric',timeZone:'America/New_York'});}catch(e){return '';}}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
+for(var j=0;j<C.length&&j<items.length;j++){
+  var tag=items[j].querySelector('.tag');if(!tag)continue;
+  if(open(C[j])){
+    var a=document.createElement('a');a.className='tag tag-go';a.href='#adventure-'+C[j].n;
+    a.textContent=(j===latest&&j>0)?'New · Read it now':'Read it now';
+    tag.parentNode.replaceChild(a,tag);items[j].classList.add('is-open');
+  }else{var d=when(C[j]);tag.textContent=d?'Arrives '+d:'Coming soon';}
+}
+function show(i,scroll){
+  var c=C[i];
+  document.getElementById('r-eyebrow').textContent='Adventure '+c.n+' · '+c.p;
+  document.getElementById('r-title').textContent=c.t;
+  document.getElementById('r-blurb').textContent=c.b;
+  var h='';for(var k=0;k<4;k++){h+='<figure><img src="img/pete-'+c.n+'-'+(k+1)+'.jpg" alt="Page '+(k+1)+': '+esc(c.a[k]||'')+'" width="1080" height="1350"><figcaption>Page '+(k+1)+' of 4</figcaption></figure>';}
+  var r=document.getElementById('r-pages');r.innerHTML=h;r.scrollLeft=0;
+  r.setAttribute('aria-label',c.t+', four comic pages');
+  document.getElementById('r-try-h').textContent=c['try']?'Try it together':'Talk about it together';
+  document.getElementById('r-try').textContent=c['try']||c.q;
+  var more=document.getElementById('r-more'),nx=C[i+1];
+  if(nx&&open(nx)){more.innerHTML='Next: <a href="#adventure-'+nx.n+'">'+esc(nx.t)+' →</a>';more.hidden=false;}
+  else if(nx){var d=when(nx);more.textContent='Next adventure'+(d?' arrives '+d:' is coming soon')+'.';more.hidden=false;}
+  else{more.hidden=true;}
+  for(var j=0;j<items.length;j++){items[j].classList.toggle('is-now',j===i);}
+  if(scroll){var s=document.getElementById('read');if(s&&s.scrollIntoView)s.scrollIntoView();}
+}
+function route(scroll){
+  var m=/^#adventure-(\d\d)$/.exec(location.hash);
+  if(m){for(var i=0;i<C.length;i++){if(C[i].n===m[1]&&open(C[i])){show(i,scroll);return true;}}}
+  return false;
+}
+var hero=document.getElementById('hero-read');
+if(hero&&latest>0){hero.textContent='Read the latest adventure';}
+if(!route(true)){show(latest,false);}
+window.addEventListener('hashchange',function(){route(true);});
+})();
+</script>
 </body>
 </html>
